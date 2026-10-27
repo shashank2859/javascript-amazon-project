@@ -63,6 +63,8 @@ function updatecartquantity(){
     document.querySelector('.js-cart-quantity').innerHTML=cartquantity;
      
 }
+
+
 document.querySelector('.js-products-grid').innerHTML=productshtml;
 
 document.querySelectorAll('.js-add-to-cart')
