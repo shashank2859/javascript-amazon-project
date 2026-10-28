@@ -1,3 +1,4 @@
+import {deliveryoptions} from './deliveryoptions.js';
 export let cart = JSON. parse
 (localStorage.getItem('cart'));
 
@@ -50,4 +51,18 @@ export function removefromcart(productId){
   });
   cart=newcart;
   saveToStorage() ;
+}
+
+export function updateDeliveryOption(productId, deliveryoptionId) {
+  let matchingitem;
+
+  cart.forEach((cartitem) => {
+    if (productId === cartitem.productId) {
+      matchingitem = cartitem;
+    }
+  });
+
+  matchingitem.deliveryoptionId = deliveryoptionId;
+
+  saveToStorage();
 }
