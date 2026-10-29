@@ -1,8 +1,9 @@
 import {cart, removefromcart, updateDeliveryOption} from '../../data/cart.js';
-import {products} from '../../data/products.js';
+import {products, getproduct} from '../../data/products.js';
 import {formatCurrency} from '../utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-import {deliveryoptions} from '../../data/deliveryoptions.js';
+import {deliveryoptions, getdeliveryoption} from '../../data/deliveryoptions.js';
+import {renderpaymentsummary} from './paymentsummary.js';
 
  export function renderOrderSummary() {
   let cartsummaryHTML = '';
@@ -10,13 +11,10 @@ import {deliveryoptions} from '../../data/deliveryoptions.js';
   cart.forEach((cartitem) => {
     const productId = cartitem.productId;
 
-    const matchingproduct = products.find((product) => product.id === productId);
-    if (!matchingproduct) return; // skip unknown products
+    const matchingproduct=getproduct(productId);
 
-    // fall back to the first option if the saved id is missing/invalid
-    const deliveryoption =
-      deliveryoptions.find((option) => option.id === cartitem.deliveryoptionId)
-      || deliveryoptions[0];
+    
+    const deliveryoption = getdeliveryoption(cartitem.deliveryoptionId);
 
     const datestring = dayjs()
       .add(deliveryoption.deliverydays, 'days')
