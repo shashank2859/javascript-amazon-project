@@ -5,6 +5,7 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deliveryoptions, getdeliveryoption} from '../../data/deliveryoptions.js';
 import {renderpaymentsummary} from './paymentsummary.js';
 
+
  export function renderOrderSummary() {
   let cartsummaryHTML = '';
 
@@ -61,8 +62,15 @@ import {renderpaymentsummary} from './paymentsummary.js';
   // listeners must be attached AFTER each render, because innerHTML replaces the elements
   document.querySelectorAll('.js-delete-link').forEach((link) => {
     link.addEventListener('click', () => {
-      removefromcart(link.dataset.productId);
+    const productId=link.dataset.productId;
+      removefromcart(productId);
       renderOrderSummary();
+      
+      const container = document.querySelector(
+        `.js-cart-item-container-${productId}`
+      );
+        container.remove();
+        renderpaymentsummary();
     });
   });
 
@@ -71,6 +79,7 @@ import {renderpaymentsummary} from './paymentsummary.js';
       const {productId, deliveryOptionId} = element.dataset; // capital O
       updateDeliveryOption(productId, deliveryOptionId);
       renderOrderSummary();
+      renderpaymentsummary();
     });
   });
 }
