@@ -22,7 +22,7 @@ import {renderpaymentsummary} from './paymentsummary.js';
       .format('dddd, MMMM D');
 
     cartsummaryHTML += `
-      <div class="cart-item-container js-cart-item-container-${matchingproduct.id}">
+      <div class="cart-item-container js-cart-item-container js-cart-item-container-${matchingproduct.id}">
         <div class="delivery-date">
           Delivery date: ${datestring}
         </div>
@@ -35,7 +35,8 @@ import {renderpaymentsummary} from './paymentsummary.js';
             <div class="product-price">
               $${formatCurrency(matchingproduct.priceCents)}
             </div>
-            <div class="product-quantity">
+            <div class="product-quantity
+            js-product-quantity-${matchingproduct.id}">
               <span>
                 Quantity: <span class="quantity-label">${cartitem.quantity}</span>
               </span>
@@ -65,12 +66,7 @@ import {renderpaymentsummary} from './paymentsummary.js';
     const productId=link.dataset.productId;
       removefromcart(productId);
       renderOrderSummary();
-      
-      const container = document.querySelector(
-        `.js-cart-item-container-${productId}`
-      );
-        container.remove();
-        renderpaymentsummary();
+      renderpaymentsummary();
     });
   });
 
