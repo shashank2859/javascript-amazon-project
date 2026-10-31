@@ -4,7 +4,7 @@ export let cart ;
 loadfromstorage();
 
 
-function loadfromstorage(){
+export function loadfromstorage(){
   
   cart = JSON. parse
     (localStorage.getItem('cart'));
