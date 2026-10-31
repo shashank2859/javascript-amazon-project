@@ -33,7 +33,7 @@ import {renderpaymentsummary} from './paymentsummary.js';
           <div class="cart-item-details">
             <div class="product-name">${matchingproduct.name}</div>
             <div class="product-price">
-              $${formatCurrency(matchingproduct.priceCents)}
+              ${matchingproduct.getprice()}
             </div>
             <div class="product-quantity
             js-product-quantity-${matchingproduct.id}">
