@@ -1,7 +1,13 @@
 import {cart,addtocart} from '../data/cart.js' ;
-import {products} from '../data/products.js';
+import {products, loadproducts} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
+
+
+loadproducts(renderproductsgrid);
+  
+
+function renderproductsgrid(){
 let productshtml='';
 
 products.forEach((product)=>{
@@ -79,3 +85,4 @@ document.querySelectorAll('.js-add-to-cart')
       updatecartquantity();
     });
   });
+}
