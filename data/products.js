@@ -44,12 +44,30 @@ class Clothing extends product{
     this.sizeChartLink=productdetails.sizeChartLink;
 
   }
+
   extrainfohtml(){
     return `
     <a href="${this.sizeChartLink}" target="_blank">Size Chart</a>   `
 
   }
 }
+
+function logThis() {
+console.log(this);
+}
+logThis();
+logThis.call('hello');
+
+this
+const object3 = {
+method: () => {
+console.log(this);
+}
+}
+object3.method();
+
+
+
 
 export const products = [
   {
