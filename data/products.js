@@ -81,14 +81,14 @@ export let products=[];
           return new product(productdetails);
      
 })
-  func(); 
+       func(); 
   })
-   
+ 
   xhr.open('GET','https://supersimplebackend.dev/products');
   xhr.send();
 
 }
-loadproducts();
+
 /*
 export const products = [
   {
