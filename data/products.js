@@ -52,19 +52,19 @@ class Clothing extends product{
   }
 }
 
-function logThis() {
-console.log(this);
-}
-logThis();
-logThis.call('hello');
+// function logThis() {
+// console.log(this);
+// }
+// logThis();
+// logThis.call('hello');
 
-this
-const object3 = {
-method: () => {
-console.log(this);
-}
-}
-object3.method();
+// this
+// const object3 = {
+// method: () => {
+// console.log(this);
+// }
+// }
+// object3.method();
 
 
 

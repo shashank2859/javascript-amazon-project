@@ -45,6 +45,7 @@ function Cart(localstoragekey) {
                 }); }
                 this.saveToStorage() ;
         },
+
         removefromcart(productId){
         const newcart=[];
             this.cartitems.forEach((cartitem)=>{
@@ -55,6 +56,7 @@ function Cart(localstoragekey) {
             this.cartitems=newcart;
             this.saveToStorage() ;
         },
+        
         updateDeliveryOption(productId, deliveryoptionId) {
         let matchingitem;
 
