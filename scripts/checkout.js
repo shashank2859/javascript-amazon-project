@@ -3,14 +3,11 @@ import { renderpaymentsummary } from "./checkout/paymentsummary.js";
 // import '../data/cart-class.js';
 // import '../data/backend-practise.js';
 import { loadcart } from "../data/cart.js";
-import { loadproducts } from "../data/products.js";
+import { loadproducts, loadproductsfetch } from "../data/products.js";
 
 Promise.all([
-    new Promise((resolve) => {
-        loadproducts(() => {
-            resolve('value1');
-    })
-    }),
+
+    loadproductsfetch(),
     new Promise((resolve) => {
         loadcart(()=> {
             resolve();
