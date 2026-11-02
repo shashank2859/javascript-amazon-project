@@ -80,7 +80,7 @@ export function loadproductsfetch(){
            }
           return new product(productdetails); 
         });
-        console.log('load prpducts')
+        console.log('load products')
        });
 
   return promise;
